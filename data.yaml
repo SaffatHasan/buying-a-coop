@@ -1,23 +1,23 @@
 timeline:
-  - date: August 4th, 2022
+  - date: 08-04-2022
     text: COOP Apartment viewed
-  - date: Aug 5, 2022
+  - date: 08-5-2022
     text: Verbal offer given
-  - date: Aug 10, 2022
-    text: HSBC rate locked until Nov 7, 2022; Loan estimate also provided
-  - date: Aug 22, 2022
-    text: Purchase Agreement Received & Signed (delay by seller)
-  - date: Aug 25, 2022
+  - date: 08-10-2022
+    text: HSBC rate locked until 11-7-2022; Loan estimate also provided
+  - date: 08-22-2022
+    text: Purchase Agreement Received & Signed (external delay)
+  - date: 08-25-2022
     text: Purchase agreement Executed.
-  - date: Sep 19, 2022
+  - date: 09-19-2022
     text: Letter of Commitment received
-  - date: Sep 27, 2022
-    text: Financials Received / Relayed (delay by seller)
-  - date: Oct 7, 2022
+  - date: 09-27-2022
+    text: Financials Received - Relayed (external delay)
+  - date: 10-7-2022
     text: Board package submitted
-  - date: Oct 18, 2022
+  - date: 10-18-2022
     text: Project team declines Fannie Mae Loan; building fails 
-  - date: Oct 24, 2022
+  - date: 10-24-2022
     text: Board Interview
-  - date: Oct 26, 2022
-    text: New terms provided @ 6.52% APR, no letter of denial? Building may not be approved.
+  - date: 10-26-2022
+    text: New terms provided @ 6.52% APR-no letter of denial? Building may not be approved.
