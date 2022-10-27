@@ -1,183 +1,56 @@
-<!-- TODO(saffathasan): move this to own file -->
-<style>
-  * {
-    box-sizing: border-box;
-  }
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Timeline | Basic demo</title>
 
-  /* Set a background color */
-  body {
-    background-color: #474e5d;
-    font-family: Helvetica, sans-serif;
-  }
-
-  /* The actual timeline (the vertical ruler) */
-  .timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* The actual timeline (the vertical ruler) */
-  .timeline::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: white;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
-  }
-
-  /* Container around content */
-  .container {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
-  }
-
-  /* The circles on the timeline */
-  .container::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: white;
-    border: 4px solid #FF9F55;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-  }
-
-  /* Place the container to the left */
-  .left {
-    left: 0;
-  }
-
-  /* Place the container to the right */
-  .right {
-    left: 50%;
-  }
-
-  /* Add arrows to the left container (pointing right) */
-  .left::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    right: 30px;
-    border: medium solid white;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent white;
-  }
-
-  /* Add arrows to the right container (pointing left) */
-  .right::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid white;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
-  }
-
-  /* Fix the circle for containers on the right side */
-  .right::after {
-    left: -16px;
-  }
-
-  /* The actual content */
-  .content {
-    padding: 20px 30px;
-    background-color: white;
-    position: relative;
-    border-radius: 6px;
-  }
-
-  /* Media queries - Responsive timeline on screens less than 600px wide */
-  @media screen and (max-width: 600px) {
-  /* Place the timelime to the left */
-    .timeline::after {
-      left: 31px;
+  <style type="text/css">
+    body, html {
+      font-family: sans-serif;
     }
+  </style>
 
-  /* Full-width containers */
-    .container {
-      width: 100%;
-      padding-left: 70px;
-      padding-right: 25px;
-    }
+  <script src="../../dist/vis.js"></script>
+  <link href="../../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="visualization"></div>
 
-  /* Make sure that all arrows are pointing leftwards */
-    .container::before {
-      left: 60px;
-      border: medium solid white;
-      border-width: 10px 10px 10px 0;
-      border-color: transparent white transparent transparent;
-    }
+<script type="text/javascript">
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
 
-  /* Make sure all circles are at the same spot */
-    .left::after, .right::after {
-      left: 15px;
-    }
+  // Create a DataSet (allows two way data-binding)
+  var items = new vis.DataSet([
+    // 
+    {id: 1, content: 'COOP Apartment viewed', start: '08-04-2022'},
+    // 
+    {id: 2, content: 'Verbal offer given', start: '08-5-2022'},
+    // 
+    {id: 3, content: 'HSBC rate locked until 11-7-2022; Loan estimate also provided', start: '08-10-2022'},
+    // 
+    {id: 4, content: 'Purchase Agreement Received & Signed (external delay)', start: '08-22-2022'},
+    // 
+    {id: 5, content: 'Purchase agreement Executed.', start: '08-25-2022'},
+    // 
+    {id: 6, content: 'Letter of Commitment received', start: '09-19-2022'},
+    // 
+    {id: 7, content: 'Financials Received - Relayed (external delay)', start: '09-27-2022'},
+    // 
+    {id: 8, content: 'Board package submitted', start: '10-7-2022'},
+    // 
+    {id: 9, content: 'Project team declines Fannie Mae Loan; building fails', start: '10-18-2022'},
+    // 
+    {id: 10, content: 'Board Interview', start: '10-24-2022'},
+    // 
+    {id: 11, content: 'New terms provided @ 6.52% APR-no letter of denial? Building may not be approved.', start: '10-26-2022'},
+    // 
+  ]);
 
-  /* Make all right containers behave like the left ones */
-    .right {
-      left: 0%;
-    }
-  }
-</style>
-<div class="timeline"><div class="container right"><div class="content">
-        <h2>August 4th, 2022</h2>
-        <p>COOP Apartment viewed</p>
-      </div>
-    </div><div class="container left"><div class="content">
-        <h2>Aug 5, 2022</h2>
-        <p>Verbal offer given</p>
-      </div>
-    </div><div class="container right"><div class="content">
-        <h2>Aug 10, 2022</h2>
-        <p>HSBC rate locked until Nov 7, 2022; Loan estimate also provided</p>
-      </div>
-    </div><div class="container left"><div class="content">
-        <h2>Aug 22, 2022</h2>
-        <p>Purchase Agreement Received & Signed (delay by seller)</p>
-      </div>
-    </div><div class="container right"><div class="content">
-        <h2>Aug 25, 2022</h2>
-        <p>Purchase agreement Executed.</p>
-      </div>
-    </div><div class="container left"><div class="content">
-        <h2>Sep 19, 2022</h2>
-        <p>Letter of Commitment received</p>
-      </div>
-    </div><div class="container right"><div class="content">
-        <h2>Sep 27, 2022</h2>
-        <p>Financials Received / Relayed (delay by seller)</p>
-      </div>
-    </div><div class="container left"><div class="content">
-        <h2>Oct 7, 2022</h2>
-        <p>Board package submitted</p>
-      </div>
-    </div><div class="container right"><div class="content">
-        <h2>Oct 18, 2022</h2>
-        <p>Project team declines Fannie Mae Loan; building fails</p>
-      </div>
-    </div><div class="container left"><div class="content">
-        <h2>Oct 24, 2022</h2>
-        <p>Board Interview</p>
-      </div>
-    </div><div class="container right"><div class="content">
-        <h2>Oct 26, 2022</h2>
-        <p>New terms provided @ 6.52% APR, no letter of denial? Building may not be approved.</p>
-      </div>
-    </div></div>
-  </div>
+  // Configuration for the Timeline
+  var options = {};
+
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
+</script>
+</body>
+</html>
