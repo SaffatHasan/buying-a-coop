@@ -13,15 +13,13 @@ jobs:
         with:
           data_file: data.yaml
           data_format: yaml
-          template: timeline.template.html
+          template: timeline.jinja
           output_file: timeline.html
 
-      - run: cat timeline.html
-      # TODO(saffathasan): publish to gh-deploy branch
-      # - run: mkdir publish/
-      # - run: mv timeline.template.html publish/timeline.html
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@4.1.4
-      #   with:
-      #     branch: gh-pages # The branch the action should deploy to.
-      #     folder: publish/ # The folder the action should deploy.
+      - run: mkdir publish/
+      - run: mv timeline.html publish/index.html
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: publish/ # The folder the action should deploy.
