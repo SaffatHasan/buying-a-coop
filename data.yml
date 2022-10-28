@@ -16,8 +16,12 @@ timeline:
   - date: 10-7-2022
     text: Board package submitted
   - date: 10-18-2022
-    text: Project team declines Fannie Mae Loan; building fails 
+    text: Project team rejects Fannie Mae; building fails guidelines (net loss > 5%)
   - date: 10-24-2022
     text: Board Interview
   - date: 10-26-2022
-    text: New terms provided @ 6.52% APR-no letter of denial? Building may not be approved.
+    text: New terms provided @ 6.52% APR
+  - date: 10-27-2022
+    text: Building approved for HSBC-backed product
+  - date: 11-07-2022
+    text: HSBC rate lock 5% expires
