@@ -21,33 +21,23 @@
 
   // Create a DataSet (allows two way data-binding)
   var items = new vis.DataSet([
-    // 
-    {id: 1, content: 'COOP Apartment viewed', start: '08-04-2022'},
-    // 
-    {id: 2, content: 'Verbal offer given', start: '08-5-2022'},
-    // 
-    {id: 3, content: 'HSBC rate locked until 11-7-2022; Loan estimate also provided', start: '08-10-2022'},
-    // 
+    {id: 1, content: 'COOP viewed', start: '08-04-2022'},
+    {id: 2, content: 'Verbal offer', start: '08-5-2022'},
+    {id: 3, content: 'HSBC rate locked until 11-7-2022', start: '08-10-2022'},
     {id: 4, content: 'Purchase Agreement Received & Signed (external delay)', start: '08-22-2022'},
-    // 
     {id: 5, content: 'Purchase agreement Executed.', start: '08-25-2022'},
-    // 
     {id: 6, content: 'Letter of Commitment received', start: '09-19-2022'},
-    // 
     {id: 7, content: 'Financials Received - Relayed (external delay)', start: '09-27-2022'},
-    // 
     {id: 8, content: 'Board package submitted', start: '10-7-2022'},
-    // 
     {id: 9, content: 'Project team declines Fannie Mae Loan; building fails', start: '10-18-2022'},
-    // 
     {id: 10, content: 'Board Interview', start: '10-24-2022'},
-    // 
     {id: 11, content: 'New terms provided @ 6.52% APR-no letter of denial? Building may not be approved.', start: '10-26-2022'},
-    // 
   ]);
 
   // Configuration for the Timeline
-  var options = {};
+  var options = {
+    order: (a, b) => { return b - a; },
+  };
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
