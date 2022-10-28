@@ -21,13 +21,15 @@
 
   // Create a DataSet (allows two way data-binding)
   var items = new vis.DataSet([
-    // {% for event in timeline %}
+    {%- for event in timeline %}
     {id: {{ loop.index }}, content: '{{ event.text }}', start: '{{ event.date }}'},
-    // {% endfor %}
+    {%- endfor %}
   ]);
 
   // Configuration for the Timeline
-  var options = {};
+  var options = {
+    order: (a, b) => { return b - a; },
+  };
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
